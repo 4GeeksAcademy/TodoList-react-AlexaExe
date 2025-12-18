@@ -1,28 +1,87 @@
-import React from "react";
+import React, { useState } from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-            
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+ const [alumno, setAlumno] = useState({
+	name:"",
+	email:"",
+
+ });	
+
+ //const [email, setEmail] = useState("");
+
+
+ const [alumnos, setAlumnos] =useState([]);	
+ 
+
+const handleChange = (e) => {
+	setAlumno({
+		...alumno,
+		[e.target.name]: e.target.value
+	})
+}
+
+
+ const handleClick = () => {
+ 	if(name.trim() =="" || email.trim() == ""){
+		alert("Debes rellenar todos los campos, no seas flojo")
+		return
+	}
+	
+//spread operator
+	setAlumnos ([...alumnos, {name: name, email: email}])
+	setName("")
+	setEmail("")
+}
+
+//const handleInputChange =(e) =>{
+	//setInputValue({
+		//...alumno,
+		//[e.target.name]:e.target.value})
+
+	//}
+
+	return (
+		<>
+		<div className="text-center">
+            <input name="name" 
+			value={alumno.name} 
+			type="text" 
+			onChange={handleChange}/>
+
+
+			<input name="email" 
+			value={alumno.email} 
+			type="text" 
+			onChange={handleChange}/>
+
+
+
+			<button className="btn success" onClick={handleClick}>Agregar</button>
+			<div className="container">
+				{
+					alumnos.map((alumno,index) => {
+						return(
+							<div key={index}>
+								<p> Name: {alumno.name}</p>
+								<p> Email: {alumno.email}</p>
+							</div>	
+						)
+					})
+				}
+
+			</div>
 		</div>
+		
+		</>
 	);
-};
+
+}
 
 export default Home;
+
+//type="button" class="btn-close" aria-label="Close" para quitar las To do list...

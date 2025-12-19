@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Perfil from './Perfil';
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";

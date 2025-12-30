@@ -1,100 +1,47 @@
 import React, { useState } from "react";
-import Perfil from './Perfil';
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
-
-	const [alumno, setAlumno] = useState({
-		name: "",
-		email: "",
-
-	});
-
-	//const [email, setEmail] = useState("");
-
-
-	const [alumnos, setAlumnos] = useState([]);
-	console.log(alumno);
-
-
-
-	const handleChange = (e) => {
-		setAlumno({
-			...alumno,
-			[e.target.name]: e.target.value
-		})
+	const [inputValue, setInputValue] = useState("")
+	const [todos, setTodos] = useState([])
+	
+	const addToDo = () => {
+		setTodos([...todos, inputValue])
+		setInputValue("")
+	}
+ 
+	const deleteTask = (index) => {
+		const newArray = todos.filter((todo, i)=> index != i)
+		setTodos(newArray)
 	}
 
-	const handleKeyUp = (e) => {
-		if (alumno.name.trim() == "" || alumno.email.trim() == "") {
-			alert("Debes rellenar todos los campos, no seas flojo")
-			return
-		}
 
-		//spread operator
-		setAlumnos([...alumnos, alumno])
-		setAlumno({
-			name: "",
-			email: "",
-		})
-	}
-}
+	return (
 
-
-const handleClick = () => {
-	if (alumno.name.trim() == "" || alumno.email.trim() == "") {
-		alert("Debes rellenar todos los campos, no seas flojo")
-		return
-	}
-
-	//spread operator
-	setAlumnos([...alumnos, alumno])
-	setAlumno({
-		name: "",
-		email: "",
-	})
-}
-
-
-return (
-	<>
-		<div className="text-center">
-			<input name="name"
-				value={alumno.name}
-				type="text"
-				onChange={handleChange} />
-
-
-			<input name="email"
-				value={alumno.email}
-				type="text"
-				onChange={handleChange}
-				onKeyUp={handleKeyUp}
-			/>
-
-
-
-			<button className="btn success" onClick={handleClick}>Agregar</button>
-			<div className="container">
-				{
-					alumnos.map((alumno, index) => {
-						return (
-							<div key={index}>
-								<p> Name: {alumno.name}</p>
-								<p> Email: {alumno.email}</p>
-							</div>
-						)
-					})
-				}
-
+		<>
+			<div>
+				<input 
+					type="text"
+					value={inputValue}
+					onChange={(e)=> setInputValue(e.target.value)}
+				/>
+				<button onClick={addToDo}>enviar</button>
 			</div>
-		</div>
-
-	</>
-);
+			<div>
+				<ul>
+					{todos.map((todo, index)=> 
+					<li key={index}>
+						{todo}
+					<button onClick={()=>deleteTask(index)}>borrar</button>
+					</li>
+					)}
+				</ul>
+			</div>
+		</>
+	)
 
 }
 

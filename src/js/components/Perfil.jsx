@@ -9,8 +9,8 @@ const Perfil = ({ nombre }) => {
             
             ) : (
                 <div className="tarjeta-perfil">
-                    <h2>Holas</h2>
-                    <p>ffgdg</p>
+                    <h2></h2>
+                    <p></p>
                 </div>
             )}
         </div>

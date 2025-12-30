@@ -10,11 +10,9 @@ import '../styles/index.css'
 
 // components
 import Home from './components/Home';
-import Perfil from './Perfil';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Home/>
-    <Perfil/>
   </React.StrictMode>,
 )

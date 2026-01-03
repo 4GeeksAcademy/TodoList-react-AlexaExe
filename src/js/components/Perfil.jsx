@@ -1,21 +1,25 @@
 const Perfil = ({ nombre }) => {
     return (
-        <div>
-            {nombre === "Alexandra" ? (
-                <div className="tarjeta-perfil">
-                    <h2>gfg</h2>
-                    <p>fdd</p>
-                </div>
-            
+        <div className="bg-light shadow p-4 rounded text-center mt-4" style={{ width:"300px"}}>
+            {
+            nombre === "Alexandra" ? (
+                <>
+                <h2>Alexandra</h2>
+                </>			
             ) : (
-                <div className="tarjeta-perfil">
-                    <h2></h2>
-                    <p></p>
-                </div>
+               <>
+                <h2>Invitado</h2>
+                </>
             )}
         </div>
     );  
 
         };
+
+        // {/* PERFIL */}
+				// <div className="" style={{height:"100px"}}>
+				// <div className="bg-light p-3" style={{width:""}}>
+				// 	<Perfil/>
+				// </div>
 
 export default Perfil;

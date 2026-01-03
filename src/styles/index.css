@@ -9,7 +9,15 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+.todo-x{
+  visibility: hidden;
+}
 
-.X{
-  hover:
+
+.todo-item:hover .todo-x{
+visibility: visible;
+}
+
+.shadow-lg{
+  0 1rem 3rem rgba($black, .175);
 }

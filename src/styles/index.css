@@ -9,15 +9,51 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body{
+  font-family:cursive;
+  margin: 0;
+  padding: 0;
+}
+
 .todo-x{
   visibility: hidden;
+  border: none;
 }
 
 
 .todo-item:hover .todo-x{
 visibility: visible;
+border: none;
 }
 
 .shadow-lg{
   0 1rem 3rem rgba($black, .175);
+}
+
+
+
+.img-perfil-Alex {
+display: flex;
+width: 200px;
+height: 200px;
+object-fit: cover;
+border-radius: 50%;
+box-shadow: 0 1rem 3rem;
+transition: transform 0.3s ease;
+}
+
+.img-perfil-Alex:hover{
+  transform: scaleX(1.05);
+}
+.inputs{
+max-width: 20%;
+height: 30px; 
+font-size: 14px;
+border-radius: 5%;
+border: 1px solid;
+
+}
+
+#root{
+padding: 0%;
 }

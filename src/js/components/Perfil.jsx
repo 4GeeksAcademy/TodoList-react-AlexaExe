@@ -7,7 +7,7 @@ const Perfil = () => {
     return (
         <div className="container-fluid bg-success-subtle text-success-emphasis" style={{ padding: "0px", margin:"auto"}}>
            <h2 className="mb-4">
-            {nombre ==="Alexandra" ? `Bienvenida Alex` : `Invitad@ ${nombre || ""}`}
+            {nombre ==="Alexandra" ? `Bienvenida Alex✨` : `Invitad@ ${nombre || ""}`}
            </h2>
                    
             <input type="text"

@@ -45,6 +45,9 @@ const Home = () => {
 
 					<button onClick={addToDo}>añadir</button>
 					<div className="container text-center">
+						{todos.length === 0 ? (
+							<p><br/> No hay tareas pendientes😴</p>
+						) : (
 						<ul>
 							{todos.map((todo, index) =>
 								<ul className="todo-item" key={index}>
@@ -52,8 +55,8 @@ const Home = () => {
 									<button className="todo-x" onClick={() => deleteTask(index)}>x</button>
 								</ul>
 							)}
-
 						</ul>
+						)}
 					</div>
 
 				</div>
